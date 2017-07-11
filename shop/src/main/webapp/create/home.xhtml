@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<h:body> 
+
+		<!-- Display fasceContext message -->
+		<h:panelGroup
+			rendered="#{not facesContext.validationFailed and not empty facesContext.messageList}">
+			<div class="alert">
+				<a class="close" onclick="$('.alert').hide()">x</a>
+				<h:messages id="msg" errorClass="alert alert-danger"
+					infoClass="alert alert-success" warnClass="alert alert-warning"
+					globalOnly="true">
+				</h:messages>
+			</div>
+		</h:panelGroup>
+
+Add Shop
+
+	<div>
+	<h:form id="shopFrm">
+	
+		<div>
+		Name:
+		<h:inputText value="#{newShop.name}" autocomplete="off"/><br/>
+		Description:
+		<h:inputText value="#{newShop.description}" autocomplete="off"/>
+		<div>
+		<h:commandButton action="#{createController.createShop()}" value="Add" />
+		</div>
+		</div>
+	
+	</h:form>
+	</div>
+</h:body> 
+</html>

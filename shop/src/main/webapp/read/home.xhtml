@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+</h:head>
+<h:body>
+	View Shops
+
+<h:form>
+
+
+<table>
+		<thead>
+			<tr>
+				<th>Shop ID:</th>
+				<th>Shop Name:</th>
+				<th>Shop Description:</th>		
+			</tr>
+
+		</thead>
+
+
+<tbody>
+
+	<ui:repeat var="o" value="#{shopData.findAllShopById()}">
+<tr>
+
+<td><h:inputText value="#{o.shopId}" autocomplete="off"/><br/></td>
+<td><h:inputText value="#{o.name}" autocomplete="off"/><br/></td>
+<td><h:inputText value="#{o.description}" autocomplete="off"/><br/></td>
+
+<td><h:commandButton action="#{updateController.update(o)}" value="Update" /></td>
+<td><h:commandButton action="#{deleteController.delete(o.shopId)}" value="Delete" /></td>
+		
+
+</tr>
+</ui:repeat>
+
+</tbody>
+</table>
+<a href="#{request.contextPath}/create/home.jsf">Add Shop</a>
+
+
+
+
+
+
+
+
+
+
+
+
+</h:form>
+</h:body>
+</html>
